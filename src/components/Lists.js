@@ -31,7 +31,7 @@ class Lists extends React.Component {
         return (
             <div className="list-holder">
                 <ul className="task-group-odd">
-                    <h2>TODO</h2>
+                    <h2>Todo</h2>
                     { todoTask }
                 </ul>
         
