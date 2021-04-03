@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Lists from './Lists';
 
 class App extends React.Component {
     state = {
@@ -19,13 +20,17 @@ class App extends React.Component {
             this.setState({ errorMessage: error.message });
         });
     }
+    
+    onUpdateTaskList = (newTaskList) => {
+        this.setState({ tasks: newTaskList });
+      }
 
     render() {
         console.log(this.state.tasks);
         return (
             <div className="container">
-            <h1>TESTING! AGAIN!</h1>
-            <div>{ this.state.tasks["poster"] }</div>
+                <h2>TaskBoard</h2>
+                <Lists tasks={this.state.tasks} onUpdateTaskList={this.onUpdateTaskList}/>
             </div>
         );
     }
