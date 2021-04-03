@@ -26,9 +26,8 @@ class App extends React.Component {
       }
 
     render() {
-        console.log(this.state.tasks);
         return (
-            <div className="container">
+            <div className="TaskBoard">
                 <h2>TaskBoard</h2>
                 <Lists tasks={this.state.tasks} onUpdateTaskList={this.onUpdateTaskList}/>
             </div>

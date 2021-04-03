@@ -1,19 +1,44 @@
 import React from 'react';
-import Item from './Item';
+import Task from './Task';
 
 class Lists extends React.Component {
 
     // Change markDone so that it can move to the columns next to it
-    markDone = (task) => {
+    moveTask = (task, move) => {
         const taskIndex = this.props.tasks.findIndex(t => t.id === task.id);
         let taskList = this.props.tasks;
-        taskList.splice(taskIndex, 1);
+        let taskColumn = taskList[taskIndex]["column"];
+        if(taskColumn === "To Do" && move === 1){
+            taskList[taskIndex]["column"] = "In Progress";
+        } 
+
+        if (taskColumn === "In Progress" && move === 1){
+            taskList[taskIndex]["column"] = "Review";    
+        } else if (taskColumn === "In Progress" && move === 0){
+            taskList[taskIndex]["column"] = "To Do"; 
+        }
+
+        if (taskColumn === "Review" && move === 1){
+            taskList[taskIndex]["column"] = "Done";
+        } else if (taskColumn === "Review" && move === 0){
+            taskList[taskIndex]["column"] = "In Progress";
+        }
+
+        if (taskColumn === "Done" && move === 0){
+            taskList[taskIndex]["column"] = "Review";
+        }
+
         console.log(this.props);
         this.props.onUpdateTaskList(taskList);
       }
     
     renderTaskItem = (task) => {
-        return <Item task={task} poster={task.poster} Important={task.Important} key={task.id} markDone={this.markDone} />
+        return <Task task={task} 
+            poster={task.poster} 
+            Important={task.Important} 
+            column={task.column} 
+            key={task.id} 
+            moveTask={this.moveTask} />
       }
     
     render() {
@@ -21,10 +46,9 @@ class Lists extends React.Component {
         const inprogTask = this.props.tasks.filter(task => task.column === 'In Progress').map(this.renderTaskItem)
         const revTask = this.props.tasks.filter(task => task.column === 'Review').map(this.renderTaskItem)
         const doneTask = this.props.tasks.filter(task => task.column === 'Done').map(this.renderTaskItem)
-        console.log(todoTask);
     
         const taskItems = this.props.tasks.map(task => {
-          return <Item task={task} key={task.id} markDone={this.markDone} />
+          return <Task task={task} key={task.id} markDone={this.markDone} />
         });
 
 
