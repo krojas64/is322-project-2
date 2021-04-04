@@ -1,9 +1,7 @@
 import React from 'react';
 import Task from './Task';
 
-class Lists extends React.Component {
-
-    // Change markDone so that it can move to the columns next to it
+class Mobile extends React.Component {
     moveTask = (task, move) => {
         const taskIndex = this.props.tasks.findIndex(t => t.id === task.id);
         let taskList = this.props.tasks;
@@ -40,6 +38,10 @@ class Lists extends React.Component {
             key={task.id} 
             moveTask={this.moveTask} />
     }
+
+    updateVal = (event) => {
+        this.props.onUpdateValue(event.target.value);
+    }
     
     render() {
         const todoTask = this.props.tasks.filter(task => task.column === 'To Do').map(this.renderTaskItem)
@@ -54,30 +56,47 @@ class Lists extends React.Component {
 
         return (
             <div className="list-background">
+                <div className="selector">
+                    <label for="list-choice">Select Column:</label>
+                    <select id="list-choice" value={this.props.value} onChange={this.updateVal}>
+                        <option value="To Do">To Do</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Review">Review</option>
+                        <option value="Done">Done</option>
+                    </select>
+                </div>
                 <div className="list-holder">
+                    { this.props.value === "To Do" ? (
                     <ul className="task-group-odd">
                         <h2>Todo</h2>
                         { todoTask }
                     </ul>
-            
+                    ) : null }
+
+                    { this.props.value === "In Progress" ? (
                     <ul className="task-group-even">
                         <h2>In Progress</h2>
                         { inprogTask }
                     </ul>
-            
+                    ) : null }
+
+                    { this.props.value === "Review" ? (
                     <ul className="task-group-odd">
                         <h2>Review</h2>
                         { revTask }
                     </ul>
-            
+                    ) : null }
+
+                    { this.props.value === "Done" ? (
                     <ul className="task-group-even">
                         <h2>Done</h2>
                         { doneTask }
                     </ul>
+                    ) : null }
                 </div>
             </div>
         )
     }
 }
 
-export default Lists;
+export default Mobile;

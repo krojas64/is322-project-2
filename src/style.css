@@ -7,30 +7,35 @@ button {
     margin: 1px;
 }
 
+.list-background {
+    background-color: #c6d6e4;
+}
+
 .list-holder {
     display: flex;
-    background-color: #c6d6e4;
     padding: 5px;
     align-items: center;
     justify-content: center;
 }
 
 .task-group-odd {
+    overflow: auto;
     display: 1;
     background-color: #dddddd;
     padding: 5px;
     margin: 2px;
     width: 300px;
-    height: 400px;
+    height: 600px;
 }
 
 .task-group-even {
+    overflow: auto;
     display: 1;
     background-color: #ebebeb;
     padding: 5px;
     margin: 2px;
     width: 300px;
-    height: 400px;
+    height: 600px;
 }
 
 .list-group-item {
@@ -38,4 +43,16 @@ button {
     border-radius: 15px;
     padding: 10px;
     margin: 5px;
+}
+
+@media only screen and (max-width: 779px) {
+    .task-group-odd {
+        width: 400px;
+        height: 400px;
+    }
+    
+    .task-group-even {
+        width: 400px;
+        height: 400px;
+    }
 }
