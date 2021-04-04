@@ -3,8 +3,16 @@ body {
     font-family: Tahoma;
 }
 
+h2 {
+    margin: 5px;
+}
+
 button {
     margin: 1px;
+}
+
+hr {
+    border: 4px solid #a0a0a0;
 }
 
 .list-background {
@@ -47,12 +55,12 @@ button {
 
 @media only screen and (max-width: 779px) {
     .task-group-odd {
-        width: 400px;
+        width: 728px;
         height: 400px;
     }
     
     .task-group-even {
-        width: 400px;
+        width: 728px;
         height: 400px;
     }
 }

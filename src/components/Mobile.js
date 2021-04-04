@@ -1,6 +1,6 @@
 import React from 'react';
 import Task from './Task';
-
+// A version of List.js that displays one column with a dropdown
 class Mobile extends React.Component {
     moveTask = (task, move) => {
         const taskIndex = this.props.tasks.findIndex(t => t.id === task.id);
@@ -69,6 +69,7 @@ class Mobile extends React.Component {
                     { this.props.value === "To Do" ? (
                     <ul className="task-group-odd">
                         <h2>Todo</h2>
+                        <hr></hr>
                         { todoTask }
                     </ul>
                     ) : null }
@@ -76,6 +77,7 @@ class Mobile extends React.Component {
                     { this.props.value === "In Progress" ? (
                     <ul className="task-group-even">
                         <h2>In Progress</h2>
+                        <hr></hr>
                         { inprogTask }
                     </ul>
                     ) : null }
@@ -83,6 +85,7 @@ class Mobile extends React.Component {
                     { this.props.value === "Review" ? (
                     <ul className="task-group-odd">
                         <h2>Review</h2>
+                        <hr></hr>
                         { revTask }
                     </ul>
                     ) : null }
@@ -90,6 +93,7 @@ class Mobile extends React.Component {
                     { this.props.value === "Done" ? (
                     <ul className="task-group-even">
                         <h2>Done</h2>
+                        <hr></hr>
                         { doneTask }
                     </ul>
                     ) : null }

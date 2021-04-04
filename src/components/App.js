@@ -31,7 +31,7 @@ class App extends React.Component {
 
         this.setState({ breakpoint: newBreakpoint });
     }
-
+    // Retrieves data from DB, which is from my github
     getData() {
         axios.get('https://my-json-server.typicode.com/krojas64/p2-db/task')
         .then(response => {

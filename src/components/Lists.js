@@ -57,21 +57,25 @@ class Lists extends React.Component {
                 <div className="list-holder">
                     <ul className="task-group-odd">
                         <h2>Todo</h2>
+                        <hr></hr>
                         { todoTask }
                     </ul>
             
                     <ul className="task-group-even">
                         <h2>In Progress</h2>
+                        <hr></hr>
                         { inprogTask }
                     </ul>
             
                     <ul className="task-group-odd">
                         <h2>Review</h2>
+                        <hr></hr>
                         { revTask }
                     </ul>
             
                     <ul className="task-group-even">
                         <h2>Done</h2>
+                        <hr></hr>
                         { doneTask }
                     </ul>
                 </div>
