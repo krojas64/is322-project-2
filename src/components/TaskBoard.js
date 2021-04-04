@@ -1,7 +1,7 @@
 import React from 'react';
 import Task from './Task';
 
-class Lists extends React.Component {
+class TaskBoard extends React.Component {
 
     // Change markDone so that it can move to the columns next to it
     moveTask = (task, move) => {
@@ -84,4 +84,4 @@ class Lists extends React.Component {
     }
 }
 
-export default Lists;
+export default TaskBoard;

@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import Lists from './Lists';
+import TaskBoard from './TaskBoard';
 import Mobile from './Mobile';
 
 const MOBILE_BREAKPOINT = 768;
@@ -54,7 +54,7 @@ class App extends React.Component {
             return (
                 <div className="TaskBoard">
                     <h2>TaskBoard</h2>
-                    <Lists tasks={this.state.tasks} onUpdateTaskList={this.onUpdateTaskList}/>
+                    <TaskBoard tasks={this.state.tasks} onUpdateTaskList={this.onUpdateTaskList}/>
                 </div>
             );
         } else if (this.state.breakpoint === 'mobile') {

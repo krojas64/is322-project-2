@@ -26,6 +26,10 @@ hr {
     justify-content: center;
 }
 
+.selector {
+    padding: 8px;
+}
+
 .task-group-odd {
     overflow: auto;
     display: 1;
